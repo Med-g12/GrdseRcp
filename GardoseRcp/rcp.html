@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .image-container {
+    display: flex;
+    justify-content: space-between; 
+    }   
+ 
+    .rcp1, .rcp2, .rcp3 {
+    flex:1;
+    padding: 25px;
+    display: flex;
+    justify-content: center; 
+ 
+    }
+ 
+    .pplr{
+        font-size: 50px;
+        margin: auto;
+    }
+ 
+    .rcp1, .rcp2, .rcp3 {
+    position: relative; 
+    display: inline-block;
+    }
+    .rcp1 img, .rcp2 img, .rcp3 img {
+    width: 100%; 
+    height: 700px;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover; 
+    }
+    .ovrlyTxt {
+    position: absolute; 
+    top: 50px;
+    left: 95px;
+    transform: translate(-50%, -50%); 
+    color: white;
+    font-size: 36px;
+    font-weight: bold; 
+ 
+    }
+    .ovrlyDesc {
+    position: absolute; 
+    top: 135px;
+    left: 50px;
+    transform: translate(5%, -20%);
+    color: white;
+    font-size: 15px;
+    font-weight:100; 
+ 
+    }
+ 
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+ 
+    }
+ 
+    .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 60%;
+    text-align: center;
+    }
+ 
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+ 
+    .close:hover,
+    .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+    .clrd{
+        color: #ff9e1b;
+    }
+    
+
+    .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+</style>
+<body>
+    <h1 class="pplr">Popular <span class="clrd">Recipes</span> Today</h1>
+    <div class="image-container">
+        <div class="rcp1" id="myBtn" onclick="showModal()">        
+            <img src="justus-menke-62XLglIrTJc-unsplash.jpg">
+            <h5 class="ovrlyTxt">Steak</h5>
+            <p class="ovrlyDesc">Steak is a juicy, tender cut of beef, typically grilled, <br>pan-seared, or broiled to perfection. Known for its rich,<br> savory flavor and mouthwatering aroma, steak is a<br> timeless favorite that can be seasoned simply with<br> salt and pepper or enhanced with marinades, herbs,<br> and sauces.</p>
+            
+        </div>
+        <div class="rcp2" id="sds" onclick="showModal('')">
+            <img src="emanuel-ekstrom-KJOUnsGXq58-unsplash.jpg">
+            <h5 class="ovrlyTxt">Pasta</h5>
+            <p class="ovrlyDesc">Pasta is a beloved Italian staple made from durum<br> wheat and water, crafted into countless shapes and<br> sizes to suit any sauce or flavor. </p>
+        </div>
+        <div class="rcp3" id="aas" onclick="showModal()">
+            <img src="shayan-ramesht-exSEmuA7R7k-unsplash.jpg">
+            <h5 class="ovrlyTxt">Pizza</h5>
+            <p class="ovrlyDesc">Pizza is a globally loved dish that starts with a<br> golden, crispy crust, layered with rich tomato sauce,<br> gooey melted cheese, and endless toppings—from<br> classic pepperoni to fresh veggies and gourmet<br> ingredients.</p>
+            
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h4>Ingredients</h4>
+            <ul>
+                <li>Warm Water </li>
+                <li>All-purpose flour </li>
+                <li>Tomato sauce </li>
+                <li>Dried oregano </li>
+                <li>Dried basil </li>
+                <li>Mozzarella </li>
+                <li>Toppings (pepperoni, sausage, ground beef, green peppers, mushrooms, onions, etc.) </li>
+                    </li>
+            </ul>
+        </div>
+
+</div>
+        
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+ 
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+ 
+        function showModal(title, description) {
+            document.getElementById("modalTitle").textContent = title;
+            document.getElementById("modalDescription").textContent = description;
+            modal.style.display = "block";
+        }
+ 
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+ 
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+
+
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+    </script>
+</body>
+</html>

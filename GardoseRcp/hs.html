@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+    }
+ 
+    body {
+        background: url('/mnt/data/brooke-lark-08bOYnH_r_E-unsplash.jpg') no-repeat left center;
+        background-size: cover;
+        background-attachment: fixed;
+        color: #000;
+    }
+ 
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid #eee;
+        padding: 21px;
+        flex-wrap: wrap;
+    }
+ 
+    .logo {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #000;
+    }
+ 
+    .logo img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+ 
+    .search-bar {
+        flex-grow: 1;
+        margin: 0 2rem;
+        min-width: 200px;
+    }
+ 
+    .search-bar input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+ 
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+ 
+    .nav-links a {
+        text-decoration: none;
+        color: #000;
+        font-size: 1rem;
+    }
+ 
+    .signup-btn {
+        background-color: #ff9e1b;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+ 
+    .hero {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 6rem 4rem;
+        background-image: url('brooke-lark-08bOYnH_r_E-unsplash.jpg');
+        background-size:cover;
+        background-position: left center;
+        min-height: 100vh;
+        flex-wrap: wrap;
+    }
+ 
+    .hero-text {
+        max-width: 50%;
+        text-align: left;
+    }
+ 
+    .hero-text h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+ 
+    .hero-text span {
+        color: #ff9e1b;
+    }
+ 
+    .hero-buttons {
+        margin-top: 1.5rem;
+    }
+ 
+    .hero-buttons button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+ 
+    .btn-recipes {
+        background-color: #ff9e1b;
+        color: white;
+        width: 150px;
+        z-index: 1;
+    }
+ 
+    .btn-learn {
+        background-color: #555;
+        color: white;
+        left: 30px; 
+        z-index: 2; 
+    }
+ 
+ 
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+ 
+        .search-bar {
+            margin: 1rem 0;
+            width: 100%;
+        }
+ 
+        .nav-links {
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 1rem;
+        }
+ 
+        .hero {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 4rem 2rem;
+        }
+ 
+        .hero-text {
+            max-width: 100%;
+        }
+ 
+        .hero-text h1 {
+            font-size: 2rem;
+        }
+ 
+        .hero-buttons button {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+ 
+    @media (max-width: 480px) {
+        .hero-text h1 {
+            font-size: 1.75rem;
+        }
+ 
+        .search-bar input {
+            font-size: 0.9rem;
+        }
+ 
+        .nav-links a {
+            font-size: 0.9rem;
+        }
+ 
+        .signup-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+    }
+</style>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="image.png" alt="Yumly Logo">
+            Yumly
+        </div>
+        <div class="search-bar">
+            <input type="text"  placeholder="What would you like to cook?">
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Login</a>
+            <button class="signup-btn">Sign up</button>
+        </div>
+    </nav>
+ 
+    <section class="hero">
+        <div class="hero-text">
+          <h1>Your Ultimate<br> Destination<br> for <span>Delicious</span> <br>Discoveries</h1>
+          <div class="hero-buttons">
+            <a href="rcp.html">
+                <button class="btn-recipes">Recipes</button>            
+            </a>   
+            <a href="#">
+                <button class="btn-learn">Learn More</button>
+            </a>                     
+          </div>
+        </div>
+    </section>
+</body>
+</html>
